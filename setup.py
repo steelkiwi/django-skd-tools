@@ -13,7 +13,7 @@ setuptools.setup(
     name="django-skd-tools",
     version="0.0.1",
     author="Steelkiwi",
-    author_email="sites@steelkiwi.com",
+    author_email="vilisov@steelkiwi.com",  # temp
     url="https://github.com/steelkiwi/django-skd-tools",
     license="MIT",
     description="Steelkiwi Django Tools",
