@@ -5,7 +5,7 @@ from django.http import HttpResponseBadRequest
 from django.core.exceptions import ObjectDoesNotExist
 
 
-def _get_cache_key(prefix, *args, **kwargs):
+def get_cache_key(prefix, *args, **kwargs):
     """
     Calculates cache key based on `args` and `kwargs`.
     `args` and `kwargs` must be instances of hashable types.
@@ -22,7 +22,7 @@ def cache_method(func, prefix=''):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         cache_key_prefix = prefix or '_cache_{}'.format(func.__name__)
-        cache_key = _get_cache_key(cache_key_prefix, *args, **kwargs)
+        cache_key = get_cache_key(cache_key_prefix, *args, **kwargs)
         if not hasattr(self, cache_key):
             setattr(self, cache_key, func(self))
         return getattr(self, cache_key)
