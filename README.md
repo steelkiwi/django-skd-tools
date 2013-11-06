@@ -29,3 +29,10 @@ Utils
  - image_path
  - get_random_filename
  - storage_factory
+
+Fields
+
+-----
+`skd_tools.fields`
+
+ - TypedFileField
