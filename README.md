@@ -36,3 +36,19 @@ Fields
 `skd_tools.fields`
 
  - TypedFileField
+
+
+    Example:
+    file = TypedFileField(allowed_mimes=['application/pdf',
+                                         'image/png', 'image/jpeg',
+                                         'application/msword',
+                                         'application/zip',
+                                         'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+                          allowed_exts=['doc',
+                                        'docx',
+                                        'jpeg',
+                                        'jpg',
+                                        'png',
+                                        'pdf'],
+                          max_size=10)
+    Max size taking MB(megabytes)
