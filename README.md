@@ -20,3 +20,12 @@ Decorators
  - cache_func
  - get_or_default
  - ajax_required
+
+Utils
+
+-----
+`skd_tools.utils`
+
+ - image_path
+ - get_random_filename
+ - storage_factory
