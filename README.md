@@ -38,9 +38,10 @@ Fields
 `skd_tools.fields`
 
  - TypedFileField
-
-
+    Max size taking MB(megabytes)
     Example:
+
+    ```python
     file = TypedFileField(allowed_mimes=['application/pdf',
                                          'image/png', 'image/jpeg',
                                          'application/msword',
@@ -53,4 +54,4 @@ Fields
                                         'png',
                                         'pdf'],
                           max_size=10)
-    Max size taking MB(megabytes)
+    ```
