@@ -5,6 +5,7 @@ django-skd-tools
 
 Mixins
 ------
+
 `skd_tools.mixins`
 
  - LoginRequiredMixin
@@ -14,6 +15,7 @@ Mixins
 
 Decorators
 ------
+
 `skd_tools.decorators`
 
  - cache_method
@@ -22,8 +24,8 @@ Decorators
  - ajax_required
 
 Utils
-
 -----
+
 `skd_tools.utils`
 
  - image_path
@@ -31,8 +33,8 @@ Utils
  - storage_factory
 
 Fields
-
 -----
+
 `skd_tools.fields`
 
  - TypedFileField
