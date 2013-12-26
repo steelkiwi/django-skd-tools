@@ -61,3 +61,28 @@ class ActiveTabMixin(object):
         context = super(ActiveTabMixin, self).get_context_data(**kwargs)
         context['active_tab'] = self.get_active_tab()
         return context
+
+
+class ReadOnlyAdminMixin(object):
+    """
+    Mixin for ModelAdmin to make it read only.
+    """
+    actions = None
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False if obj is not None else True
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def get_readonly_fields(self, request, obj=None):
+        if obj is not None:
+            return tuple(f.name for f in obj._meta.fields)
+        return super(ReadOnlyAdminMixin, self).get_readonly_fields(request, obj)
+
+    def __init__(self, *args, **kwargs):
+        super(ReadOnlyAdminMixin, self).__init__(*args, **kwargs)
+        self.list_display_links = (None, )

@@ -12,6 +12,7 @@ Mixins
  - AjaxRequiredMixin
  - AjaxMixin
  - ActiveTabMixin
+ - ReadOnlyAdminMixin
 
 Decorators
 ------
