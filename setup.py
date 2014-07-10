@@ -1,17 +1,9 @@
-import os
 import setuptools
-
-
-SRC_ROOT = os.path.abspath(os.path.dirname(__file__))
-
-
-with open(os.path.join(SRC_ROOT, 'requirements.txt')) as f:
-    required = f.read().splitlines()
 
 
 setuptools.setup(
     name="django-skd-tools",
-    version="0.1",
+    version="0.2",
     author="Steelkiwi",
     author_email="vilisov@steelkiwi.com",  # temp
     url="https://github.com/steelkiwi/django-skd-tools",
@@ -19,7 +11,7 @@ setuptools.setup(
     description="Steelkiwi Django Tools",
     keywords="django tools helpers",
     packages=setuptools.find_packages(),
-    install_requires=required,
+    extras_require={'TypedFileField': ['python-magic==0.4.6']},
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
@@ -27,8 +19,4 @@ setuptools.setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-        'Topic :: Software Development :: Libraries :: Python Modules'
-    ],
-    # tests_require=[],
-    # test_suite='tests.runtests.runtests',
-)
+        'Topic :: Software Development :: Libraries :: Python Modules'])

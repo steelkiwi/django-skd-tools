@@ -1,7 +1,8 @@
 django-skd-tools
 ================
 
-`pip install django-skd-tools`
+- basic install: `pip install django-skd-tools`
+- install with `TypedFileField` support: `pip install django-skd-tools[TypedFileField]`
 
 Mixins
 ------
@@ -43,16 +44,9 @@ Fields
     Example:
 
     ```python
-    file = TypedFileField(allowed_mimes=['application/pdf',
-                                         'image/png', 'image/jpeg',
-                                         'application/msword',
-                                         'application/zip',
-                                         'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
-                          allowed_exts=['doc',
-                                        'docx',
-                                        'jpeg',
-                                        'jpg',
-                                        'png',
-                                        'pdf'],
-                          max_size=10)
+    file = TypedFileField(
+        allowed_mimes=['application/pdf', 'image/png', 'image/jpeg',
+                       'application/msword', 'application/zip'],
+        allowed_exts=['doc', 'docx', 'jpeg', 'jpg', 'png', 'pdf'],
+        max_size=10)
     ```
