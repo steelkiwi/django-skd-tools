@@ -41,11 +41,14 @@ class TypedFileField(forms.FileField):
                 ext = ''
             if ((self.allowed_mimes and mime not in self.allowed_mimes) or
                     (self.allowed_exts and ext not in self.allowed_exts)):
-                raise forms.ValidationError(self.error_messages['invalid_format'], code='invalid_format')
+                raise forms.ValidationError(
+                    self.error_messages['invalid_format'],
+                    code='invalid_format'
+                )
             if self.max_size and value.size / 1024.0 ** 2 > self.max_size:
-                raise ValidationError(
+                raise forms.ValidationError(
                     self.error_messages['invalid_size'],
                     code='invalid_size',
-                    params={'size': self.max_size},
+                    params={'size': self.max_size}
                 )
         return value
