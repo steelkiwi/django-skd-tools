@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name="django-skd-tools",
-    version="0.2.1",
+    version="0.2.2",
     author="Steelkiwi",
     author_email="vilisov@steelkiwi.com",  # temp
     url="https://github.com/steelkiwi/django-skd-tools",
