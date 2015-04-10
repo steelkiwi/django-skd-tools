@@ -19,6 +19,10 @@ class TypedFileField(forms.FileField):
         allowed_exts=('doc', 'docx', 'jpeg', 'jpg', 'png', 'pdf'),
         max_size=10)
     """
+    default_error_messages = {
+        'invalid_format': _("Wrong file format."),
+        'invalid_size': _("This file is too big (max size is %(size)d MB).")
+    }
 
     def __init__(self, *args, **kwargs):
         self.allowed_mimes = kwargs.pop('allowed_mimes', [])
@@ -37,9 +41,11 @@ class TypedFileField(forms.FileField):
                 ext = ''
             if ((self.allowed_mimes and mime not in self.allowed_mimes) or
                     (self.allowed_exts and ext not in self.allowed_exts)):
-                raise forms.ValidationError(_('Wrong file format.'))
+                raise forms.ValidationError(self.error_messages['invalid_format'], code='invalid_format')
             if self.max_size and value.size / 1024.0 ** 2 > self.max_size:
-                raise forms.ValidationError(
-                    _('This file is too big (max size is {} MB).'.format(
-                        self.max_size)))
+                raise ValidationError(
+                    self.error_messages['invalid_size'],
+                    code='invalid_size',
+                    params={'size': self.max_size},
+                )
         return value
