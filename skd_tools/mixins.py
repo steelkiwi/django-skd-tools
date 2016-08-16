@@ -1,10 +1,12 @@
 import json
 
+from distutils.version import StrictVersion
 from django.http import HttpResponse
 from django.utils.decorators import method_decorator
 from django.core.exceptions import ImproperlyConfigured
 from django.contrib.auth.decorators import login_required
 from django.core.serializers.json import DjangoJSONEncoder
+from django.utils.version import get_version
 
 from .decorators import ajax_required
 
@@ -85,4 +87,7 @@ class ReadOnlyAdminMixin(object):
 
     def __init__(self, *args, **kwargs):
         super(ReadOnlyAdminMixin, self).__init__(*args, **kwargs)
-        self.list_display_links = (None, )
+        if get_version() >= StrictVersion('1.9.0'):
+            self.list_display_links = None
+        else:
+            self.list_display_links = (None, )
